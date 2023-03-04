@@ -3,6 +3,8 @@ import { BsFillCartDashFill } from "react-icons/bs";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { setCarsu } from "../redux/counter/counterSlice";
+import { useNavigate } from "react-router";
+import { Constant } from "../Constant/Constant";
 
 const Navbar = () => {
   const [opencar, setOpenCar] = useState(true);
@@ -10,6 +12,7 @@ const Navbar = () => {
   const [Tmp, setTmp] = useState([]);
   const [check, setCheck] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   console.log(carsU);
   const Unbuy = (id) => {
     dispatch(setCarsu(carsU.filter((i) => i.id !== id)));
@@ -103,12 +106,19 @@ const Navbar = () => {
                   className="h-full w-[70%] overflow-hidden"
                 />
                 <div className="text-white text-center flex flex-col justify-center">
-                  <p className="bg-blue-500 text-white rounded-xl">{i.name}</p>
+                  <p className="bg-blue-500 text-white rounded-xl">
+                    {i.name}cc
+                  </p>
                   <p className="bg-red-700 text-white rounded-xl font-bold mt-10 px-4 py-2">
                     Price : {i.price}$
                   </p>
-                  <button className="text-white p-4 bg-green-400 text-3xl rounded-lg font-bold mt-24">
-                    buy
+                  <button
+                    className="text-white p-4 bg-green-400 text-3xl rounded-lg font-bold mt-24"
+                    onClick={() => {
+                      navigate(Constant.Payment);
+                    }}
+                  >
+                    BUY
                   </button>
                 </div>
               </div>

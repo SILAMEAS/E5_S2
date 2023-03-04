@@ -1,28 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { TiHome } from "react-icons/ti";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Constant } from "../Constant/Constant";
 function ProductInfo() {
   const navigate = useNavigate();
-  const [Pc] = useState({
-    picPc:
-      "https://www.goldonecomputer.com/image/cache/catalog/Apple/2023/MacBook-Pro-M2-16-Grey-330x409.jpg",
-    namePc: "Macbook PRO 6 (M2 PRO / 16 GM / SSD 1TM / 16.2",
-    subDetailPc: `-CPU: Apple M2 Pro with 12-core CPU, 19-core GPU, 16-core Neural Engine $
-  -RAM: 16GB Unified -Storage: SSD 1TB
-  -Display: 16.2" Liquid Retina XDR Display`,
-    subSubDetailPc: `  -Wi-Fi 6
-  -Bluetooth 5
-  -Weigh : 2.2Kg
-  -OS: MacOS
-  -Color: Grey and Silver`,
-    footerPc: ` Warranty - 1-year hardware
-  - (No warranty for screen, battery, keyboard, fan & speaker, adapter)`,
-    brandPc: "XLove",
-    qtyPc: 90,
-    codePc: "9090",
-  });
+  const { ProDetail } = useSelector((state) => state.counter);
+  console.log("------");
+  console.log(ProDetail);
 
   return (
     <div className="w-screen flex flex-col h-screen justify-center">
@@ -37,16 +23,19 @@ function ProductInfo() {
       <div>
         <div className="items-center justify-between flex flex-col space-y-16">
           <div className="flex items-center justify-between space-x-10 w-[90%] lg:w-[50%] sm:flex-col lg:flex-row sm:space-y-10">
-            <div className="flex flex-col">
+            <div className="flex flex-col space-y-5">
               <img
-                src={Pc.picPc}
+                src={ProDetail.img}
                 alt="Logo"
                 className="border-2 border-gray-200 px-5"
               />
+              <button className="bg-yellow-400 text-white add px-2 py1 rounded-md h-[3vh]">
+                ADD TO CART
+              </button>
             </div>
 
             <div>
-              <h1 className="font-bold text-xl">{Pc.namePc}</h1>
+              <h1 className="font-bold text-xl">{ProDetail.name}</h1>
 
               <div className="flex space-x-5 text-gray-400">
                 <ul>
@@ -64,9 +53,11 @@ function ProductInfo() {
 
               <div className="flex space-x-5 border-b-2 border-t-2 py-4 my-4 border-gray-200">
                 <div>
-                  <p className="font-semibold">Brand : {Pc.brandPc}</p>
-                  <p className="font-semibold">Product Code : {Pc.codePc}</p>
-                  <p className="font-bold text-xl mt-3 price"></p>
+                  <p className="font-semibold">Brand : {ProDetail.brand}</p>
+                  <p className="font-semibold">Product Code : {ProDetail.id}</p>
+                  <p className="font-bold text-xl mt-3 ">
+                    Price : {ProDetail.price}
+                  </p>
                 </div>
               </div>
 
@@ -77,15 +68,12 @@ function ProductInfo() {
                     <input
                       id="qty"
                       type="text"
-                      value={Pc.qtyPc}
+                      value={ProDetail.buy}
                       placeholder="0"
                       maxlength="3"
                       className="w-10 text-center border-2 focus:border-black rounded-sm"
                     />
                   </div>
-                  <button className="bg-yellow-400 text-white add px-2 py1 rounded-md">
-                    ADD TO CART
-                  </button>
                 </div>
               </div>
             </div>
@@ -99,12 +87,12 @@ function ProductInfo() {
             </div>
             <hr className="bg-gray-300 h-[1px] w-full mb-5" />
             <div className="flex flex-col space-y-10">
-              <h1 className="text-lg bg-yellow-500 w-[10%] text-center font-bold text-white">
+              <h1 className="text-lg bg-yellow-500  text-center font-bold text-white">
                 Detail
               </h1>
-              <p>{Pc.subDetailPc}</p>
-              <p>{Pc.subSubDetailPc}</p>
-              <p>{Pc.footerPc}</p>
+              {/* <p>{Constant.Pc.subDetailPc}</p> */}
+              <p>{ProDetail.des}</p>
+              <p>{ProDetail.subDes}</p>
             </div>
           </div>
         </div>

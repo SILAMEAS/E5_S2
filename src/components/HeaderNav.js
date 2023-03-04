@@ -1,28 +1,35 @@
 import React from "react";
+import { useNavigate } from "react-router";
+import { Constant } from "../Constant/Constant";
 
-function HeaderNav({
-  op1 = "My Account",
-  op2 = "Wish List",
-  op3 = "Checkout",
-  op4 = "My Cart",
-}) {
+function HeaderNav({ listMenu }) {
   return (
     <div className="p-2 w-ful pr-[5%] bg-zinc-800 flex items-center justify-end h-[2vh]">
-      <ul className="text-white flex text-xs space-x-5">
-        <li>
-          <p>{op1}</p>
-        </li>
-        <li>
-          <p>{op2}</p>
-        </li>
-        <li>
-          <p>{op3}</p>
-        </li>
-        <li>
-          <p>{op4}</p>
-        </li>
-      </ul>
+      <ul className="text-white flex text-xs space-x-5">{listMenu}</ul>
     </div>
   );
 }
-export default HeaderNav;
+function NavigateTop() {
+  const navigate = useNavigate();
+  return (
+    <HeaderNav
+      listMenu={
+        <>
+          <li>
+            <button
+              onClick={() => {
+                navigate(Constant.Login);
+              }}
+            >
+              Login Account
+            </button>
+          </li>
+          <li>
+            <p>Contact Us</p>
+          </li>
+        </>
+      }
+    />
+  );
+}
+export { HeaderNav, NavigateTop };
