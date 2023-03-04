@@ -1,13 +1,13 @@
 import React from "react";
-import Footer from "../components/Footer";
-import MyHeader from "../components/MyHeader";
-import HeaderNav from "../components/HeaderNav";
-import { Constant } from "../Constant/Constant";
-import Resource from "../Database/Data";
 import { useSelector } from "react-redux";
+import Footer from "../components/Footer";
+import HeaderNav from "../components/HeaderNav";
+import MyHeader from "../components/MyHeader";
 import MyLinking from "../components/MyLinking";
 import Navigate from "../components/Navigate";
-const Home = () => {
+import { Constant } from "../Constant/Constant";
+
+const AboutUs = () => {
   const { qty } = useSelector((state) => state.counter);
   return (
     <div className="h-[100vh] fixed w-[100%]">
@@ -24,12 +24,10 @@ const Home = () => {
           }
         />
       </div>
-      <div className="h-[79vh] flex flex-col overflow-y-scroll">
-        <Resource />
-      </div>
+      <div className="h-[82vh] flex flex-col overflow-y-scroll"></div>
       <Footer address="Cambodai" location="Phnom Penh" tel="0123456789" />
     </div>
   );
 };
 
-export default Home;
+export default AboutUs;

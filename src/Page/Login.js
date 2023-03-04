@@ -1,12 +1,12 @@
 import React from "react";
+import HeaderNav from "../components/HeaderNav";
+import MyHeader from "../components/MyHeader";
 
 function Login() {
   return (
     <div className="h-[100vh] w-screen bg-slate-300 fixed">
-      <div className="h-[10vh] bg-red-200"></div>
-      <div>
-        <p>Login</p>
-      </div>
+      <HeaderNav />
+      <MyHeader />
     </div>
   );
 }

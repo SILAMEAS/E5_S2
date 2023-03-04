@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
+import { Constant } from "./Constant/Constant";
+import AboutUs from "./Page/AboutUs";
+
 import Home from "./Page/Home";
+
 import Login from "./Page/Login";
 import Payment from "./Page/Payment";
 import ProductInfo from "./Page/ProductInfo";
@@ -25,10 +29,11 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/payment" element={<Payment />} />
-        <Route path="/productInfo" element={<ProductInfo />} />
+        <Route path={Constant.Home} element={<Home />} />
+        <Route path={Constant.Login} element={<Login />} />
+        <Route path={Constant.Payment} element={<Payment />} />
+        <Route path={Constant.ProductInfo} element={<ProductInfo />} />
+        <Route path={Constant.AboutUs} element={<AboutUs />} />
       </Routes>
     </>
   );
