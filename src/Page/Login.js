@@ -1,8 +1,19 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import Footer from "../components/Footer";
+import GroupLinking from "../components/GroupLinking";
+import { NavigateTop } from "../components/HeaderNav";
 
-function Login() {
+import MyHeader from "../components/MyHeader";
+import Navigate from "../components/Navigate";
+import { Constant } from "../Constant/Constant";
+function LoginByKim() {
   return (
+<<<<<<< HEAD
     <section className="bg-white min-h-screen flex items-center justify-center">
+=======
+    <section className=" flex items-center justify-center">
+>>>>>>> main
       <div className="bg-gray-50 flex rounded-2xl shadow-lg px-3">
         <div className="w-1/2 ">
           <h2 className="font-bold text 2xl px-2">Login</h2>
@@ -47,6 +58,7 @@ function Login() {
         </div>
 
         <div className="w-1/2 p-5">
+<<<<<<< HEAD
           <img
             className="rounded-2xl"
             src="https://assets.website-files.com/626f5d0ae6c15cea8c2dd5dd/6309fc4305a883fc64b964cc_DrawKit0041_E-commerce_and_Online_Shopping_Banner.png"
@@ -55,6 +67,34 @@ function Login() {
         </div>
       </div>
     </section>
+=======
+          <img src={Constant.IMGSVG} alt="svg" />
+        </div>
+      </div>
+    </section>
+  );
+}
+function Login() {
+  const { qty } = useSelector((state) => state.counter);
+  return (
+    <div className="h-[100vh] fixed w-[100%]">
+      <NavigateTop />
+      <MyHeader IMGLogo={Constant.IMGLogo} qty={qty} />
+      <div className=" px-20 border-b-4 border-black">
+        <Navigate
+          ListLinking={
+            <>
+              <GroupLinking />
+            </>
+          }
+        />
+      </div>
+      <div className="h-[82vh] flex flex-col overflow-y-scroll justify-center items-center">
+        <LoginByKim />
+      </div>
+      <Footer address="Cambodai" location="Phnom Penh" tel="0123456789" />
+    </div>
+>>>>>>> main
   );
 }
 

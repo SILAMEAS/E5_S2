@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
-import Home from "./Page/Home";
-import Login from "./Page/Login";
-import Payment from "./Page/Payment";
-import ProductInfo from "./Page/ProductInfo";
+import Navigator from "./routes";
 function getWindowSize() {
   const Widthinner = window.innerWidth;
   return Widthinner;
@@ -24,12 +20,7 @@ function App() {
   }, []);
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/payment" element={<Payment />} />
-        <Route path="/productInfo" element={<ProductInfo />} />
-      </Routes>
+      <Navigator />
     </>
   );
 }
