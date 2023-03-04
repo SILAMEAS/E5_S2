@@ -9,11 +9,7 @@ import Navigate from "../components/Navigate";
 import { Constant } from "../Constant/Constant";
 function LoginByKim() {
   return (
-<<<<<<< HEAD
-    <section className="bg-white min-h-screen flex items-center justify-center">
-=======
     <section className=" flex items-center justify-center">
->>>>>>> main
       <div className="bg-gray-50 flex rounded-2xl shadow-lg px-3">
         <div className="w-1/2 ">
           <h2 className="font-bold text 2xl px-2">Login</h2>
@@ -58,22 +54,13 @@ function LoginByKim() {
         </div>
 
         <div className="w-1/2 p-5">
-<<<<<<< HEAD
-          <img
-            className="rounded-2xl"
-            src="https://assets.website-files.com/626f5d0ae6c15cea8c2dd5dd/6309fc4305a883fc64b964cc_DrawKit0041_E-commerce_and_Online_Shopping_Banner.png"
-            alt="React Image"
-          />
-        </div>
-      </div>
-    </section>
-=======
           <img src={Constant.IMGSVG} alt="svg" />
         </div>
       </div>
     </section>
   );
 }
+
 function Login() {
   const { qty } = useSelector((state) => state.counter);
   return (
@@ -94,7 +81,6 @@ function Login() {
       </div>
       <Footer address="Cambodai" location="Phnom Penh" tel="0123456789" />
     </div>
->>>>>>> main
   );
 }
 
