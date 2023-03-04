@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Navigator from "./routes";
+import "react-slideshow-image/dist/styles.css";
 function getWindowSize() {
   const Widthinner = window.innerWidth;
   return Widthinner;

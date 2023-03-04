@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import Cart from "../components/Cart";
 
 const Resource = () => {
@@ -31,7 +32,7 @@ const Resource = () => {
       buy: 1,
       id: 3,
       name: "Lambo",
-      brand: "roll roys",
+      brand: "Lambo",
       price: 10000000,
       des: "Sport Car",
       subDes: "It was power 3000 wh. Limited speed is 345 km/h",
@@ -42,7 +43,7 @@ const Resource = () => {
       buy: 1,
       id: 4,
       name: "NSX",
-      brand: "roll roys",
+      brand: "NSX",
       price: 10000000,
       des: "Sport Car",
       subDes: "It was power 3000 wh. Limited speed is 345 km/h",
@@ -53,7 +54,7 @@ const Resource = () => {
       buy: 1,
       id: 5,
       name: "OD",
-      brand: "roll roys",
+      brand: "OD",
       price: 10000000,
       des: "Sport Car",
       subDes: "It was power 3000 wh. Limited speed is 345 km/h",
@@ -225,13 +226,17 @@ const Resource = () => {
       img: "https://i.pinimg.com/originals/d5/1c/07/d51c07ff9e7f04ab4346c0105c6adfe6.png",
     },
   ]);
-
+  const { dataSearch } = useSelector((state) => state.counter);
   return (
     <>
       <div className="grid lg:grid-cols-5  md:grid-cols-4 grid-cols-2 w-full mt-10 gap-4 mx-auto h-full">
-        {cars.map((items) => {
-          return <Cart key={items.id} data={items} />;
-        })}
+        {dataSearch === ""
+          ? cars.map((items) => {
+              return <Cart key={items.id} data={items} />;
+            })
+          : cars
+              .filter((i) => i.brand === dataSearch.toUpperCase())
+              .map((item) => <Cart key={item.id} data={item} />)}
       </div>
     </>
   );

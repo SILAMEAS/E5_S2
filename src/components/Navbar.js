@@ -2,15 +2,14 @@ import React, { useState } from "react";
 import { BsFillCartDashFill } from "react-icons/bs";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { setCarsu } from "../redux/counter/counterSlice";
+import { setCarsu, setProDetail } from "../redux/counter/counterSlice";
 import { useNavigate } from "react-router";
 import { Constant } from "../Constant/Constant";
 
 const Navbar = () => {
-  const [opencar, setOpenCar] = useState(true);
+  const [opencar, setOpenCar] = useState(false);
   const { carsU } = useSelector((state) => state.counter);
   const [Tmp, setTmp] = useState([]);
-  const [check, setCheck] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   console.log(carsU);
@@ -20,7 +19,7 @@ const Navbar = () => {
   const get = (id) => {
     setTmp(carsU.filter((i) => i.id === id));
     console.log(Tmp);
-    setCheck(true);
+    navigate(Constant.ProductInfo);
   };
 
   return (
@@ -52,6 +51,7 @@ const Navbar = () => {
                       className="flex relative"
                       onClick={() => {
                         get(i.id);
+                        dispatch(setProDetail(i));
                       }}
                     >
                       <img
@@ -59,7 +59,6 @@ const Navbar = () => {
                         alt=""
                         className="w-16 h-16"
                         onClick={() => {
-                          setCheck(true);
                           setOpenCar(!opencar);
                         }}
                       />
@@ -84,47 +83,6 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      {check &&
-        Tmp.map((i) => {
-          return (
-            <div
-              className="bg-black h-[80%] lg:h-[100%] w-full absolute left-0 top-[0]"
-              key={i}
-            >
-              <div className="flex justify-around h-full">
-                <div className="relative">
-                  <AiFillCloseCircle
-                    className="text-white font-bold text-5xl "
-                    onClick={() => {
-                      setCheck(false);
-                    }}
-                  />
-                </div>
-                <img
-                  src={i.img}
-                  alt=""
-                  className="h-full w-[70%] overflow-hidden"
-                />
-                <div className="text-white text-center flex flex-col justify-center">
-                  <p className="bg-blue-500 text-white rounded-xl">
-                    {i.name}cc
-                  </p>
-                  <p className="bg-red-700 text-white rounded-xl font-bold mt-10 px-4 py-2">
-                    Price : {i.price}$
-                  </p>
-                  <button
-                    className="text-white p-4 bg-green-400 text-3xl rounded-lg font-bold mt-24"
-                    onClick={() => {
-                      navigate(Constant.Payment);
-                    }}
-                  >
-                    BUY
-                  </button>
-                </div>
-              </div>
-            </div>
-          );
-        })}
     </div>
   );
 };

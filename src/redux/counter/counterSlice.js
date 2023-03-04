@@ -4,6 +4,7 @@ const initialState = {
   qty: 0,
   ProDetail: {},
   carsU: [],
+  dataSearch: "",
 };
 
 export const counterSlice = createSlice({
@@ -25,11 +26,20 @@ export const counterSlice = createSlice({
     setCarsu: (state, action) => {
       state.carsU = action.payload;
     },
+    setDataSearch: (state, action) => {
+      state.dataSearch = action.payload;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { buyOne, unBuyOne, setBuy, setProDetail, setCarsu } =
-  counterSlice.actions;
+export const {
+  buyOne,
+  unBuyOne,
+  setBuy,
+  setProDetail,
+  setCarsu,
+  setDataSearch,
+} = counterSlice.actions;
 
 export default counterSlice.reducer;
