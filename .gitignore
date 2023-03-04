@@ -3,7 +3,14 @@
 /node_modules
 /.pnp
 .pnp.js
-
+/.pnp.cjs 
+/.pnp.loader.mjs
+/.vscode/
+/.yarn/
+/.yarnrc.yml
+/src/Components/
+/yarn.lock 
+/package.json
 # testing
 /coverage
 
@@ -15,7 +22,7 @@
 .env.local
 .env.development.local
 .env.test.local
-.env.production.local
+.env.production.local 
 
 npm-debug.log*
 yarn-debug.log*
