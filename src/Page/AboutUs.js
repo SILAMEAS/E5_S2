@@ -10,7 +10,7 @@ import Navigate from "../components/Navigate";
 import { Constant } from "../Constant/Constant";
 const HingCode = () => {
   return (
-    <div className="w-[100%] mt-5 flex flex-col">
+    <div className="w-[100%] mt-5 flex flex-col justify-center items-center">
       <div className="grid grid-cols-3 px-10">
         <img
           src="https://i0.wp.com/epthinktank.eu/wp-content/uploads/2021/09/EPRS-Briefing-698028-General-product-safety-regulation-FINAL.png?fit=1000%2C666&ssl=1"
@@ -90,7 +90,7 @@ const AboutUs = () => {
           }
         />
       </div>
-      <div className="h-[82vh] flex flex-col overflow-y-scroll">
+      <div className="h-[82vh] flex justify-center items-center overflow-y-scroll">
         <HingCode />
       </div>
       <Footer address="Cambodai" location="Phnom Penh" tel="0123456789" />

@@ -62,10 +62,10 @@ const Cart = ({ data }) => {
             dispatch(setProDetail(data));
           }}
         />
-        <div className="mt-2 mx-4">
-          <p className="font-bold">{data.name}</p>
-          <p className="font-bold">{data.price}</p>
-          <p className="font-bold">{data.des}</p>
+        <div className="mt-2 mx-auto">
+          <p className="font-bold">Model : {data.name}</p>
+          <p className="font-bold">Price : {data.price}</p>
+          <p className="font-bold">Brand : {data.brand}</p>
           <div className="text-blue-400 flex w-[100%] justify-between px-5 items-center h-[70%] text-2xl mt-5">
             <button
               onClick={() => {

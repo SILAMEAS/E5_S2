@@ -1,7 +1,14 @@
 import React from "react";
 import MySearch from "./MySearch";
 import Navbar from "./Navbar";
-const MyHeader = ({ IMGLogo, qty = 10, value, type, buttonName, holder }) => {
+const MyHeader = ({
+  IMGLogo,
+  qty = 10,
+  value,
+  type,
+  buttonName = "Search",
+  holder = "search",
+}) => {
   return (
     <div className="w-ful h-[10vh] flex flex-row justify-between px-10 bg-black">
       <img src={IMGLogo} alt="Logo" />

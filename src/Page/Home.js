@@ -15,12 +15,7 @@ const Home = () => {
     <div className="h-[100vh] fixed w-[100%]">
       <NavigateTop />
       <div className="z-10">
-        <MyHeader
-          IMGLogo={Constant.IMGLogo}
-          qty={qty}
-          holder={"search"}
-          buttonName={"Search"}
-        />
+        <MyHeader IMGLogo={Constant.IMGLogo} qty={qty} />
       </div>
       <div className=" px-20 border-b-4 border-black">
         <Navigate

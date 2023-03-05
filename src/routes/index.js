@@ -4,7 +4,7 @@ import { Constant } from "../Constant/Constant";
 import AboutUs from "../Page/AboutUs";
 import Home from "../Page/Home";
 import Login from "../Page/Login";
-import Payment from "../Page/Payment";
+import Payment from "../Page/PaymentPage/Payment";
 import ProductInfo from "../Page/ProductInfo";
 
 export default function Navigator() {

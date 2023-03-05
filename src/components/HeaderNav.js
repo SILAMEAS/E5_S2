@@ -21,11 +21,17 @@ function NavigateTop() {
                 navigate(Constant.Login);
               }}
             >
-              Login Account
+              Login
             </button>
           </li>
           <li>
-            <p>Contact Us</p>
+            <button
+              onClick={() => {
+                navigate(Constant.AboutUs);
+              }}
+            >
+              Contact us
+            </button>
           </li>
         </>
       }

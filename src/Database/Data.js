@@ -235,7 +235,7 @@ const Resource = () => {
               return <Cart key={items.id} data={items} />;
             })
           : cars
-              .filter((i) => i.brand === dataSearch.toUpperCase())
+              .filter((i) => i.brand.toUpperCase() === dataSearch.toUpperCase())
               .map((item) => <Cart key={item.id} data={item} />)}
       </div>
     </>
